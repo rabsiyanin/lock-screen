@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Блокировка</string>
+    <string name="service_label">Блокировка экрана</string>
+    <string name="service_summary">Блокирует экран по нажатию на значок или виджет</string>
+    <string name="service_description">Нужна только для того, чтобы заблокировать экран по нажатию на значок или виджет «Блокировка». Служба не получает событий и не читает содержимое экрана.</string>
+    <string name="widget_description">Кнопка: заблокировать экран</string>
+    <string name="enable_hint">Включите «Блокировка экрана» в разделе Специальные возможности → Скачанные приложения</string>
+    <string name="service_not_ready">Служба включена, но ещё не подключилась. Попробуйте ещё раз или выключите и снова включите её в настройках.</string>
+    <string name="lock_failed">Не удалось заблокировать экран</string>
+</resources>
