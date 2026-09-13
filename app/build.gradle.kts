@@ -15,13 +15,17 @@ android {
         versionName = "1.0"
     }
 
-    // Один и тот же ключ на любой машине — новую сборку можно ставить поверх старой
+    // Один и тот же ключ на любой машине — новую сборку можно ставить поверх старой.
+    // Если файла нет, используется стандартный debug-ключ.
     signingConfigs {
         getByName("debug") {
-            storeFile = file("debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
+            val keystore = file("debug.keystore")
+            if (keystore.exists()) {
+                storeFile = keystore
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
         }
     }
 
@@ -30,6 +34,15 @@ android {
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("debug")
         }
+    }
+
+    // Java и Kotlin должны компилироваться под одну и ту же версию JVM
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     lint {
